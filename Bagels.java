@@ -40,6 +40,19 @@ class Bagels {
     }
   }
   public String toString () {
-    return this.result + " " + this.guess;
+    String ret = "";
+    if ( this.guess != this.result ) {
+      for ( int i = 0; i < this.result.length(); i++ ) {
+        if ( this.result.charAt(i) == this.guess.charAt(i) ) {
+          ret += "[Fermi]";
+        } else if ( this.result.charAt(i) == '!' ) {
+          ret += "[Pico]";
+        }
+      }
+    }
+    if ( ret == "" ) {
+      ret += "[Bagels]";
+    }
+    return ret;
   }
 }
